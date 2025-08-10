@@ -78,7 +78,7 @@ const galaxyParameters = {
   outsideColor: new THREE.Color(0x48b8b8),
 };
 
-const defaultHeartImages = Array.from({ length: 20 }, (_, i) => `https://github.com/huna4sian/a/blob/main/images/Anh(${i + 1}).JPG`);
+const defaultHeartImages = Array.from({ length: 20 }, (_, i) => `images/Anh(${i + 1}).JPG`);
 
 const heartImages = [
   ...(window.dataCCD?.data?.heartImages || []),
@@ -1226,5 +1226,6 @@ window.addEventListener('resize', checkOrientation);
 window.addEventListener('orientationchange', () => {
   setTimeout(checkOrientation, 200);
 });
+
 
 
