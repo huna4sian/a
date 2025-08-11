@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Mở quà</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        overflow: hidden;
+    }
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    .gift-btn {
+        position: relative;
+        z-index: 1;
+        padding: 20px 50px;
+        font-size: 26px;
+        font-weight: bold;
+        color: white;
+        background: linear-gradient(90deg, #ff5f7e, #736dff);
+        border: none;
+        border-radius: 30px;
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        letter-spacing: 1px;
+        animation: zoomPulse 1.5s infinite ease-in-out;
+        transition: transform 0.2s;
+    }
+    .gift-btn:hover {
+        transform: scale(1.15);
+    }
+    @keyframes zoomPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+    }
+</style>
+</head>
+<body>
+    <canvas id="stars"></canvas>
+    <button class="gift-btn" onclick="window.location.href='univer.html'">
+        🎁 MỞ QUÀ NGAY
+    </button>
+
+    <script>
+        const canvas = document.getElementById("stars");
+        const ctx = canvas.getContext("2d");
+
+        let stars = [];
+        let w, h;
+
+        function initStars() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+            stars = [];
+            for (let i = 0; i < 150; i++) {
+                stars.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    radius: Math.random() * 1.5,
+                    speed: Math.random() * 0.5 + 0.1
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, w, h);
+            ctx.fillStyle = "white";
+            for (let s of stars) {
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function updateStars() {
+            for (let s of stars) {
+                s.y += s.speed;
+                if (s.y > h) s.y = 0;
+            }
+        }
+
+        function animate() {
+            drawStars();
+            updateStars();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener("resize", initStars);
+
+        initStars();
+        animate();
+    </script>
+</body>
+</html>
