@@ -192,29 +192,7 @@ function drawMatrixRain() {
     if (now - explosionStartTime > EXPLOSION_TIME) {
       currentTextIndex++;
       if (currentTextIndex >= texts.length){
-          const btn = document.createElement("button");
-          btn.innerHTML = "🎁 QUÀ ĐÂY NÈ ";
-          btn.style.padding = "30px 60px";
-          btn.style.fontSize = "30px";
-          btn.style.fontWeight = "bold";
-          btn.style.border = "none";
-          btn.style.borderRadius = "8px";
-          btn.style.cursor = "pointer";
-          btn.style.color = "white";
-          btn.style.background = "linear-gradient(90deg, #ff5f7e, #736dff)";
-          btn.style.boxShadow = "0 4px 10px rgba(0,0,0,0.3)";
-          btn.style.position = "absolute";
-          btn.style.top = "50%";
-          btn.style.left = "50%";
-          btn.style.transform = "translate(-50%, -50%)";
-          btn.style.fontFamily = "sans-serif";
-          btn.style.letterSpacing = "1px";
-
-          document.body.appendChild(btn);
-
-          btn.addEventListener("click", () => {
-              window.location.href = "univer.html"; 
-        });
+         window.location.href = "qua.html";
           return;
       }
       currentCharIndex = 0;
@@ -234,4 +212,5 @@ lastChangeTime = Date.now();
 lastCharTime = Date.now();
 
 setInterval(drawMatrixRain, 50);
+
 
