@@ -306,7 +306,7 @@ for (let group = 0; group < numGroups; group++) {
   img.crossOrigin = "Anonymous";
   img.src = heartImages[group];
   img.onload = () => {
-    const neonTexture = createNeonTexture(img, 256);
+    const neonTexture = createNeonTexture(img, 1024);
 
     const materialNear = new THREE.PointsMaterial({
       size: 1.8,
@@ -637,7 +637,7 @@ function createTextRings() {
     let repeatedTextSegment = singleText + separator;
 
     let segmentWidth = tempCtx.measureText(repeatedTextSegment).width;
-    let textureWidthCircumference = 2 * Math.PI * ringRadius * 180; 
+    let textureWidthCircumference = 2 * Math.PI * ringRadius * 60; 
     let repeatCount = Math.ceil(textureWidthCircumference / segmentWidth);
 
     let fullText = '';
@@ -1226,6 +1226,7 @@ window.addEventListener('resize', checkOrientation);
 window.addEventListener('orientationchange', () => {
   setTimeout(checkOrientation, 200);
 });
+
 
 
 
