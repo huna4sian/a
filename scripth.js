@@ -19,7 +19,7 @@ const texts = [
   "2",
   "1",
   "🎂",
-  "16.08.2025", //Day of birth
+  "16-08-2025", //Day of birth
   "23+",
   "HAPPY BIRTHDAY",
   "NGUYỄN NGỌC LAN PHƯƠNG",
@@ -220,4 +220,5 @@ function loop() {
 }
 
 loop();
+
 
