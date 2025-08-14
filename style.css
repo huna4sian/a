@@ -268,3 +268,15 @@ input#password.shake {
     height: 60px;
   }
 }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Chặn kéo / cuộn */
+  touch-action: none; /* Chặn thao tác vuốt trên mobile */
+}
+
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
