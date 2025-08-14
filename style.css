@@ -231,3 +231,40 @@ input#password.shake {
     opacity: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column; /* Chuyển sang dọc */
+    gap: 20px; /* Khoảng cách giữa ảnh và form */
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .avatar {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .password-section {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  input#password {
+    width: 100%;
+  }
+
+  .keypad {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
+
+  .keypad button, 
+  .submit {
+    width: 100%;
+    max-width: 60px;
+    height: 60px;
+  }
+}
