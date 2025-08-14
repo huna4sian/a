@@ -43,9 +43,35 @@ function checkPassword() {
                   font-size:20px;
                   text-align:center;
                 ">
-                  <i class="fas fa-mobile-alt shake-icon" style="font-size:80px; margin-bottom:40px;"></i>
-                  <p>Vui lòng xoay ngang màn hình!</p>
+                  <!-- Icon điện thoại đầu tiên -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="none" viewBox="0 0 24 24"
+                      stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="shake-icon" style="display:inline-block; position:relative;">
+                      <rect x="7" y="2" width="10" height="20" rx="2" ry="2"></rect>
+                      <line x1="12" y1="18" x2="12" y2="18"></line>
+                  </svg>
+                    <p>Vui lòng xoay ngang màn hình!</p>
                 </div>
+                <style>
+                    @-webkit-keyframes shake {
+                        0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+                        25% { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+                        50% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+                        75% { -webkit-transform: rotate(-10deg); transform: rotate(-10deg); }
+                        100% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+                    }
+                    @keyframes shake {
+                        0% { transform: rotate(0deg); }
+                        25% { transform: rotate(10deg); }
+                        50% { transform: rotate(0deg); }
+                        75% { transform: rotate(-10deg); }
+                        100% { transform: rotate(0deg); }
+                    }
+                    .shake-icon {
+                        -webkit-animation: shake 1s infinite ease-in-out;
+                        animation: shake 1s infinite ease-in-out;
+                    }
+                </style>
             `;
 
             // Khi xoay ngang thì tự vào trang
