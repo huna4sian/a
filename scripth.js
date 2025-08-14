@@ -214,6 +214,10 @@ initDots(texts[currentTextIndex]);
 lastChangeTime = Date.now();
 lastCharTime = Date.now();
 
-setInterval(drawMatrixRain, 50);
+function loop() {
+  drawMatrixRain();
+  requestAnimationFrame(loop);
+}
 
-const matrixInterval = setInterval(drawMatrixRain, 50);
+loop();
+
