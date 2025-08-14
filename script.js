@@ -20,16 +20,57 @@ function checkPassword() {
     const messageBox = document.getElementById("messageBox");
 
     if (password === correctPassword) {
-        messageBox.style.display = "block";
-        messageBox.style.backgroundColor = "#4CAF50"; // xanh lá
-        messageBox.style.color = "#fff";
-        messageBox.innerText = "Mật khẩu đúng! Chuẩn bị đón bất ngờ nè!!";
+        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+        const isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
-        // Chuyển trang sau 1.5 giây
-        setTimeout(() => {
-            window.location.href = "hpbd.html";
-        }, 1500);
+        if (isMobile && isPortrait) {
+            document.body.style.margin = "0";
+            document.body.style.padding = "0";
+            document.body.style.height = "100vh";
+            document.body.style.background = "linear-gradient(45deg, #ff99cc, #ff66b2, #ffb3d9, #ffe6f0)";
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundAttachment = "fixed";
+            document.body.innerHTML = `
+                <div style="
+                  display:flex;
+                  flex-direction:column;
+                  align-items:center;
+                  justify-content:center;
+                  height:100vh;
+                  background:linear-gradient(45deg, #ff99cc, #ff66b2, #ffb3d9, #ffe6f0);
+                  color:white;
+                  font-size:20px;
+                  text-align:center;
+                ">
+                  <i class="fas fa-mobile-alt shake-icon" style="font-size:80px; margin-bottom:40px;"></i>
+                  <p>Vui lòng xoay ngang màn hình!</p>
+                </div>
+            `;
+
+            // Khi xoay ngang thì tự vào trang
+            function goIfLandscape() {
+              if (window.matchMedia("(orientation: landscape)").matches) {
+                  window.location.href = "hpbd.html";
+              }
+            }
+            goIfLandscape();
+            // Lắng nghe sự kiện xoay ngang
+            window.addEventListener("orientationchange", goIfLandscape);
+            window.addEventListener("resize", goIfLandscape);
+        } else {
+            // Mật khẩu đúng → báo và chuyển trang
+            messageBox.style.display = "block";
+            messageBox.style.backgroundColor = "#4CAF50"; // xanh lá
+            messageBox.style.color = "#fff";
+            messageBox.innerText = "Mật khẩu đúng! Chuẩn bị đón bất ngờ nè!!";
+
+            setTimeout(() => {
+                window.location.href = "hpbd.html";
+            }, 1500);
+        }
     } else {
+        // Mật khẩu sai
         passwordInput.classList.add("shake");
         setTimeout(() => {
             passwordInput.classList.remove("shake");
@@ -39,7 +80,7 @@ function checkPassword() {
             messageBox.innerText = "Mật khẩu sai! Vui lòng thử lại.";
             clearPassword();
         }, 500);
-    }
+    }  
 }
 
 
