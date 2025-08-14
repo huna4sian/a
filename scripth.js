@@ -216,7 +216,8 @@ lastCharTime = Date.now();
 
 setInterval(drawMatrixRain, 50 );
 
-const matrixInterval = setInterval(drawMatrixRain, 50);
+
+
 
 
 
