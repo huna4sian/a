@@ -103,7 +103,7 @@ function checkPassword() {
             messageBox.style.display = "block";
             messageBox.style.backgroundColor = "#f44336"; // đỏ
             messageBox.style.color = "#fff";
-            messageBox.innerText = "Mật khẩu sai kìa! Nhập lại đi má !!.";
+            messageBox.innerText = "Mật khẩu sai kìa! Nhập lại đi má !!";
             clearPassword();
         }, 500);
     }  
