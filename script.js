@@ -50,7 +50,7 @@ function checkPassword() {
                       <rect x="7" y="2" width="10" height="20" rx="2" ry="2"></rect>
                       <line x1="12" y1="18" x2="12" y2="18"></line>
                   </svg>
-                    <p>Vui lòng xoay ngang màn hình!</p>
+                    <p> Xoay ngang màn hình ra đê ! :)) </p>
                 </div>
                 <style>
                     @-webkit-keyframes shake {
