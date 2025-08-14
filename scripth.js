@@ -192,7 +192,10 @@ function drawMatrixRain() {
     if (now - explosionStartTime > EXPLOSION_TIME) {
       currentTextIndex++;
       if (currentTextIndex >= texts.length){
-          window.location.href = "qua.html";
+          clearInterval(matrixInterval); // Dừng hiệu ứng
+            setTimeout(() => {
+                window.location.href = "qua.html";
+            }, 500);
           return;
       }
       currentCharIndex = 0;
@@ -213,3 +216,4 @@ lastCharTime = Date.now();
 
 setInterval(drawMatrixRain, 50);
 
+const matrixInterval = setInterval(drawMatrixRain, 50);
