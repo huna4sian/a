@@ -188,20 +188,23 @@ function drawMatrixRain() {
         explodeDots();
       }
     }
-  } else if (state === "exploding") {
+  else if (state === "exploding") {
     if (now - explosionStartTime > EXPLOSION_TIME) {
-      currentTextIndex++;
-      if (currentTextIndex >= texts.length){
-          window.location.href = "qua.html";
-          return;
-      }
-      currentCharIndex = 0;
-      const nextText = texts[currentTextIndex];
-      currentDisplayTime = BASE_DISPLAY_TIME + (nextText.length > 5 ? 3000 : 0);
-      initDots(nextText);
-      lastChangeTime = now;
-      lastCharTime = now;
-      state = "forming";
+        currentTextIndex++;
+        if (currentTextIndex >= texts.length) {
+            clearInterval(matrixInterval); // Dừng hiệu ứng
+            setTimeout(() => {
+                window.location.href = "qua.html";
+            }, 500); // Chờ nửa giây cho an toàn
+            return;
+        }
+        currentCharIndex = 0;
+        const nextText = texts[currentTextIndex];
+        currentDisplayTime = BASE_DISPLAY_TIME + (nextText.length > 5 ? 3000 : 0);
+        initDots(nextText);
+        lastChangeTime = now;
+        lastCharTime = now;
+        state = "forming";
     }
   }
 }
@@ -212,5 +215,6 @@ lastChangeTime = Date.now();
 lastCharTime = Date.now();
 
 setInterval(drawMatrixRain, 50);
+
 
 
