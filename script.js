@@ -77,7 +77,7 @@ function checkPassword() {
             // Khi xoay ngang thì tự vào trang
             function goIfLandscape() {
               if (window.matchMedia("(orientation: landscape)").matches) {
-                  window.location.href = "hpbd.html";
+                  window.location.href = "univer.html";
               }
             }
             goIfLandscape();
