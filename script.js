@@ -92,7 +92,7 @@ function checkPassword() {
             messageBox.innerText = "Mật khẩu đúng! Chuẩn bị đón bất ngờ nè!!";
 
             setTimeout(() => {
-                window.location.href = "univer.html";
+                window.location.href = "hpbd.html";
             }, 1500);
         }
     } else {
